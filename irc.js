@@ -1,3 +1,10 @@
+/**
+* kaede IRC Client
+*
+* Author Kazuma Ukyo
+* License MIT License
+*
+**/
 var sys = require("sys");
 var net = require("net");
 

@@ -1,13 +1,50 @@
+/*
+    IRC Client
+    Copyright (C) 2014  http://blog.simtter.com
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
 function ChatController($scope) {
     var socket = io.connect();
 
     initialzeScope();
 
+    function initialzeScope(value) {
+      $scope.messages = [];
+      $scope.channelUsers = [];
+      $scope.client = {
+          host: "irc.freenode.net",
+          port: 6667,
+          nickName: "simttercom",
+          userName: "SimtterCom",
+          realName: "simtter.com",
+          channelName: "#wordpress-ja",
+          logined: false,
+          joined: false
+      };
+      $scope.startedChannelUsers = false;
+    }
+
     socket.on('connect', function () {
     });
 
     socket.on('disconnect', function (client) {
-      initialzeScope();
+      $scope.messages = [];
+      $scope.channelUsers = [];
+      $scope.client.logined = false;
+      $scope.client.joined = false;
       $scope.$apply();
     });
 
@@ -177,22 +214,10 @@ function ChatController($scope) {
         return $scope.client.logined ? ( $scope.client.joined ? "Part" : "Join") : "Join";
     };
     
-    function initialzeScope(value) {
-      $scope.messages = [];
-      $scope.channelUsers = [];
-      $scope.client = {
-          host: "irc.freenode.net",
-          port: 6667,
-          nickName: "simttercom",
-          userName: "SimtterCom",
-          realName: "simtter.com",
-          channelName: "#wordpress-ja",
-          logined: false,
-          joined: false
-      };
-      $scope.startedChannelUsers = false;
-    }
-
+    $scope.refocus = function refocus(scope, event, element) {
+        element.focus();
+    };
+    
     function toSafetyString(value) {
         var ret = value.replace( /[!@$%<>'"&|]/g, '' ); //タグ記号とかいくつか削除
         return ret;
