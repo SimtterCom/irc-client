@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en" ng-app>
+  <head>
+    <title>IRC Client</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="/client.css">
+    <script src="client.js"></script>
+  </head>
+  <body>
+    <div class="container" ng-controller="ChatController">
+      <div class="navbar navbar-fixed-top navbar-inverse">
+        <div class="navbar-inner">
+          <div class="pull-right">
+            <a href="http://blog.simtter.com" class="brand">simtter.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="page-header">
+        <h1>IRC Client</h1>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <div class="list-group">
+            <div class="list-group-item">
+              <h4 class="list-group-item-heading">Channel Users</h4>
+              <p class="list-group-item-text" ng-repeat="user in channelUsers" ng-bind="user">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="form-group">
+            <div class="input-group col-md-7">
+              <span class="input-group-addon">Host</span>
+              <input type="text" class="form-control" ng-model="client.host" ng-disabled="client.logined" placeholder="Host Name">
+            </div>                
+            <div class="input-group col-md-7">
+              <span class="input-group-addon">Port</span>
+              <input type="text" class="form-control" ng-model="client.port" ng-disabled="client.logined" placeholder="Port Number">
+            </div>                
+            <div class="input-group col-md-7">
+              <span class="input-group-addon">User Name</span>
+              <input type="text" class="form-control" ng-model="client.userName" ng-disabled="client.logined" placeholder="User Name">
+            </div>                
+            <div class="input-group col-md-7">
+              <span class="input-group-addon">Real Name</span>
+              <input type="text" class="form-control" ng-model="client.realName" ng-disabled="client.logined" placeholder="Real Name">
+            </div>                
+            <form ng-submit="login()">
+              <div class="input-group col-md-7">
+                <span class="input-group-addon">Nick Name</span>
+                <input type="text" class="form-control" ng-model="client.nickName" ng-disabled="client.logined" placeholder="Nick Name">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="submit" ng-disabled="!client.nickName || client.joined">{{getLoginLabel()}}</button>
+                </span>
+              </div>
+            </form>
+            <form ng-submit="join()">
+              <div class="input-group col-md-7">
+                <span class="input-group-addon">Channel Name</span>
+                <input type="text" class="form-control" ng-model="client.channelName" ng-disabled="client.joined" placeholder="Channel Name">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit" ng-disabled="!client.channelName || !client.logined">{{getJoinLabel()}}</button>
+                </span>
+              </div>
+            </form>
+            <form ng-submit="privmsg()">
+              <div class="input-group col-md-7">
+                <span class="input-group-addon">Message</span>
+                <input type="text" class="form-control" ng-model="message" placeholder="Message">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" type="submit" ng-disabled="!message || !client.joined">Send</button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <table class="table table-striped table-bordered">
+            <thead>
+              <tr>
+                <th class="col-md-2">Name</th>
+                <th class="col-md-7">Message</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="msg in messages">
+                <td class="col-md-2" ng-bind="msg.nickName"></td>
+                <td class="col-md-7" ng-bind="msg.message"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loginWaitModal" tabindex="-1" role="dialog" aria-labelledby="loginWaitModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title" id="loginWaitModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <p>Please wait&hellip;</p>
+          </div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loginSuccessModal" tabindex="-1" role="dialog" aria-labelledby="loginSuccessModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="loginSuccessModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <p>Success.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal fade" id="loginFailedModal" tabindex="-1" role="dialog" aria-labelledby="loginFailedModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="loginFailedModalLabel">Login</h4>
+          </div>
+          <div class="modal-body">
+            <p>Failed.</p>
+            <p>Nickname is already in use.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+  </body>
+</html>
