@@ -37,14 +37,18 @@ function ChatController($scope) {
       $scope.startedChannelUsers = false;
     }
 
-    socket.on('connect', function () {
-    });
-
-    socket.on('disconnect', function (client) {
+    function clearLogined(value) {
       $scope.messages = [];
       $scope.channelUsers = [];
       $scope.client.logined = false;
       $scope.client.joined = false;
+    }
+
+    socket.on('connect', function () {
+    });
+
+    socket.on('disconnect', function (client) {
+      clearLogined();
       $scope.$apply();
     });
 
@@ -97,7 +101,7 @@ function ChatController($scope) {
         }
         if(nickName==$scope.client.nickName) {
             socket.emit("delete");
-            initialzeScope();
+            clearLogined();
             $scope.$apply();
         }
     });
