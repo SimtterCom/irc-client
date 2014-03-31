@@ -30,7 +30,7 @@ function ChatController($scope) {
           nickName: "simttercom",
           userName: "SimtterCom",
           realName: "simtter.com",
-          channelName: "#wordpress-ja",
+          channelName: "#wordpress",
           logined: false,
           joined: false
       };
