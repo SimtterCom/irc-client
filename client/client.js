@@ -225,7 +225,7 @@ function ChatController($scope) {
     
     //メッセージを追加
     function addMessage(nickName, message) {
-        $scope.messages.push({nickName:nickName, message:message});
+        $scope.messages.unshift({nickName:nickName, message:message});
         $scope.$apply();
     }
 
