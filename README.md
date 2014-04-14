@@ -44,4 +44,4 @@ The GPL version 3, read it at [http://www.gnu.org/licenses/gpl.txt](http://www.g
 
 ## Contributing
 
-  * [SimtterCom](http://blog.simtter.com/)
+URL: [SimtterCom](http://blog.simtter.com/)
