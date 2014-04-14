@@ -1,10 +1,10 @@
 {
-  "name": "chat-example",
+  "name": "IRC Web Browser Client & Relay Server",
   "version": "0.0.0",
-  "description": "A chat example to showcase how to use `socket.io` with a static `express` server",
+  "description": "IRC Web Browser Client & Relay Server",
   "main": "server.js",
   "repository": "",
-  "author": "Mostafa Eweda <mostafa@c9.io>",
+  "author": "SimtterCom <info@simtter.com>",
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",

@@ -1,26 +1,48 @@
+# IRC Web Browser Client &amp; Relay Server
 
-    ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+日本語:
+  [IRC](http://ja.wikipedia.org/wiki/Internet_Relay_Chat) Web Browser ClientはウェブブラウザからIRC Relay Serverに通信するためのクライアントです。
+  IRC Relay ServerはIRC Web Browser ClientとIRCサーバー間のメッセージを中継するサーバーです。
 
+English:
+  [IRC](http://www.irc.org/) Web Browser Client connects a client for IRC Relay Server on Web Browser.
+  IRC Relay Server is a server to relay messages from IRC Web Browser Client to a IRC server. 
 
-Welcome to Cloud9 IDE!
+## Browser Support
 
-To get you started, we have created a demo chat application.
+We support the newer versions of Chrome, Firefox, Safari and IE
 
-1) Open the server.js file
+## Installation and Usage
 
-2) Click the 'Run' button at the top to start your server,
+Requirements:
 
-3) Click the URL that is emitted to the Output tab of the console
+  * NodeJS `>= 0.6.16`
+  * express `>= 3.2.6`
+  * socket.io `>= 0.9.16`
 
-Happy coding!
-The Cloud9 IDE team
+Install and Usage:
 
-## Support & Documentation
+    git clone https://github.com/SimtterCom/irc-client.git
+    cd irc-client
+    node server.js
 
-Visit http://docs.c9.io for documentation, or http://support.c9.io for support.
-To watch some training videos, visit http://www.youtube.com/user/c9ide.
+## Open Source Projects Used
+
+  * [kaede](https://github.com/yaakaito/kaede) by [yaakaito]
+  * and of course [Node.JS]!
+
+Thanks to all developers and contributors of these projects!
+
+[yaakaito]: http://yaakaito.hatenablog.com/
+[Node.JS]: http://nodejs.org/
+
+## License
+
+The GPL version 3, read it at [http://www.gnu.org/licenses/gpl.txt](http://www.gnu.org/licenses/gpl.txt)
+
+## Contributing
+
+[SimtterCom]: http://blog.simtter.com/
+
+# IRC Web Browser Client &amp; Relay Server
+
