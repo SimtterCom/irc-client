@@ -1,12 +1,14 @@
 # IRC Web Browser Client &amp; Relay Server
 
 日本語:
-  [IRC](http://ja.wikipedia.org/wiki/Internet_Relay_Chat) Web Browser ClientはウェブブラウザからIRC Relay Serverに通信するためのクライアントです。
-  IRC Relay ServerはIRC Web Browser ClientとIRCサーバー間のメッセージを中継するサーバーです。
+
+  [IRC](http://ja.wikipedia.org/wiki/Internet_Relay_Chat) Web Browser ClientはウェブブラウザからIRC Relay Serverに通信するためのクライアントです。  
+  IRC Relay ServerはIRC Web Browser ClientとIRCサーバー間のメッセージを中継するサーバーです。  
 
 English:
-  [IRC](http://www.irc.org/) Web Browser Client connects a client for IRC Relay Server on Web Browser.
-  IRC Relay Server is a server to relay messages from IRC Web Browser Client to a IRC server. 
+
+  [IRC](http://www.irc.org/) Web Browser Client connects a client for IRC Relay Server on Web Browser.  
+  IRC Relay Server is a server to relay messages from IRC Web Browser Client to a IRC server.   
 
 ## Browser Support
 
@@ -42,7 +44,4 @@ The GPL version 3, read it at [http://www.gnu.org/licenses/gpl.txt](http://www.g
 
 ## Contributing
 
-[SimtterCom]: http://blog.simtter.com/
-
-# IRC Web Browser Client &amp; Relay Server
-
+  * [SimtterCom](http://blog.simtter.com/)
