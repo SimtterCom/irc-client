@@ -1,7 +1,7 @@
 {
-  "name": "IRC Web Browser Client and Relay Server",
+  "name": "IRC-Client-and-Server",
   "version": "0.0.0",
-  "description": "",
+  "description": "IRC Web Browser Client and Relay Server",
   "main": "server.js",
   "repository": {
     "type": "git",
