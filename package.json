@@ -1,13 +1,28 @@
 {
-  "name": "IRC Web Browser Client & Relay Server",
+  "name": "IRC Web Browser Client and Relay Server",
   "version": "0.0.0",
-  "description": "IRC Web Browser Client & Relay Server",
+  "description": "",
   "main": "server.js",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SimtterCom/irc-client.git"
+  },
+  "keywords": [
+    "IRC",
+    "node.js",
+    "socket.io",
+  ],
   "author": "SimtterCom <info@simtter.com>",
+  "license": "The GPL version 3",
+  "bugs": {
+    "url": "https://github.com/SimtterCom/irc-client/issues"
+  },
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
     "socket.io": "~0.9.14"
+  },
+  "engines": {
+    "node": "0.10.x"
   }
 }
