@@ -10,7 +10,7 @@
   "keywords": [
     "IRC",
     "node.js",
-    "socket.io",
+    "socket.io"
   ],
   "author": "SimtterCom <info@simtter.com>",
   "license": "The GPL version 3",
