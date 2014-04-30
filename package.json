@@ -1,28 +1,38 @@
 {
-  "name": "IRC-Client-and-Server",
+  "name": "irc-client",
   "version": "0.0.0",
   "description": "IRC Web Browser Client and Relay Server",
-  "main": "server.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/SimtterCom/irc-client.git"
+  "homepage": "http://blog.simtter.com",
+  "author": {
+    "name": "SimtterCom",
+    "email": "info@simtter.com"
   },
   "keywords": [
     "IRC",
     "node.js",
     "socket.io"
   ],
-  "author": "SimtterCom <info@simtter.com>",
-  "license": "The GPL version 3",
+  "repository": {
+      "type": "git",
+      "url": "git://github.com/SimtterCom/irc-client"
+  },
   "bugs": {
     "url": "https://github.com/SimtterCom/irc-client/issues"
+  },
+  "licenses": {
+    "type": "GPL",
+    "url": "http://www.gnu.org/licenses/gpl.txt"
+  },
+  "main": "server.js",
+  "engines": {
+    "node": "~0.8.0"
+  },
+  "scripts": {
+    "install": "node enchat.js"
   },
   "dependencies": {
     "async": "~0.2.8",
     "express": "~3.2.4",
     "socket.io": "~0.9.14"
-  },
-  "engines": {
-    "node": "0.10.x"
   }
 }
