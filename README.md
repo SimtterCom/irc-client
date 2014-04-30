@@ -3,7 +3,7 @@
 日本語:
 
   [IRC](http://ja.wikipedia.org/wiki/Internet_Relay_Chat) Web Browser ClientはウェブブラウザからIRC Relay Serverに通信するためのクライアントです。  
-  IRC Relay ServerはIRC Web Browser ClientとIRCサーバー間のメッセージを中継するサーバーです。
+  IRC Relay ServerはIRC Web Browser ClientとIRCサーバー間のメッセージを中継するサーバーです。  
   [heroku](http://irc-client.herokuapp.com/)で実際の動作を確認できます。
 
 English:
