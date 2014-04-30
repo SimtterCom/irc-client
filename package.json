@@ -28,7 +28,7 @@
     "node": "~0.8.0"
   },
   "scripts": {
-    "install": "node enchat.js"
+    "install": "node server.js"
   },
   "dependencies": {
     "async": "~0.2.8",
